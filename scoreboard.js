@@ -79,7 +79,11 @@ req.get(scoreboardUrl, (err, res) => {
       size[1] = Math.max(size[1], test.value.length);
       test.type__str = test.type__str.toLowerCase();
       size[2] = Math.max(size[2], test.type__str.length);
-      test.cnt = test.num_solved + '/' + task.num_attempted;
+      if ('num_solved' in test) {
+        test.cnt = test.num_solved + '/' + task.num_attempted;
+      } else {
+        test.cnt = '?/' + task.num_attempted;
+      }
       size[3] = Math.max(size[3], test.cnt.length);
     }
     for (let j = 0; j < task.tests.length; j++) {
@@ -165,7 +169,7 @@ req.get(scoreboardUrl, (err, res) => {
           const task = user.task[j];
           at++;
           if ('task_id' in task) {
-            if (task.penalty_attempts == 0) {
+            if (!('penalty_micros' in task) || task.penalty_micros < 0) {
               task.penalty_micros = '-';
             } else {
               task.penalty_micros = timeToString(task.penalty_micros);
