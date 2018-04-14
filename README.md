@@ -10,6 +10,7 @@ Run `node scoreboard contestID [country]`
 
 * Practice Session 2018: `0000000000000130`
 * Qualification Round 2018: `00000000000000cb`
+* Round 1A: `0000000000007883`
 
 ## country
 
