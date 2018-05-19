@@ -13,6 +13,7 @@ Run `node scoreboard contestID [country]`
 * Round 1A: `0000000000007883`
 * Round 1B: `0000000000007764`
 * Round 1C: `0000000000007765`
+* Round 2: `0000000000007706`
 
 ## country
 
