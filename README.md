@@ -8,13 +8,14 @@ Run `node scoreboard contestID [country]`
 
 ## contestID
 
-* Practice Session 2018: `0000000000000130`
-* Qualification Round 2018: `00000000000000cb`
-* Round 1A: `0000000000007883`
-* Round 1B: `0000000000007764`
-* Round 1C: `0000000000007765`
-* Round 2: `0000000000007706`
-* Round 3: `0000000000007707`
+* 2018 Practice Session : `0000000000000130`
+* 2018 Qualification Round: `00000000000000cb`
+* 2018 Round 1A: `0000000000007883`
+* 2018 Round 1B: `0000000000007764`
+* 2018 Round 1C: `0000000000007765`
+* 2018 Round 2: `0000000000007706`
+* 2018 Round 3: `0000000000007707`
+* 2019 Qualification Round: `0000000000051705`
 
 ## country
 
