@@ -60,7 +60,7 @@ req.get(scoreboardUrl, (err, res) => {
       data.challenge.additional_info.length > 0) {
     console.log(data.challenge.additional_info);
   }
-  let tot = data.full_scoreboard_size;
+  const tot = data.full_scoreboard_size;
   console.log('number of participants:', tot);
   console.log();
   const size = [0, 0, 0, 0];
@@ -166,36 +166,36 @@ req.get(scoreboardUrl, (err, res) => {
       }
       let at = 5;
       for (let j = 0; j < Object.keys(taskMap).length; j++) {
-          const task = user.task[j];
-          at++;
-          if ('task_id' in task) {
-            if (!('penalty_micros' in task) || task.penalty_micros < 0) {
-              task.penalty_micros = '-';
-            } else {
-              task.penalty_micros = timeToString(task.penalty_micros);
-            }
-            task.total_attempts += '/' + task.penalty_attempts;
-            task.tests = '';
-            for (let k = 0; k < task.tests_definitely_solved; k++) {
-              task.tests += 'A';
-            }
-            for (let k = 0; k < task.tests_possibly_solved; k++) {
-              task.tests += '?';
-            }
-            while (task.tests.length != testCnt[j]) {
-              task.tests += '_';
-            }
-          } else {
+        const task = user.task[j];
+        at++;
+        if ('task_id' in task) {
+          if (!('penalty_micros' in task) || task.penalty_micros < 0) {
             task.penalty_micros = '-';
-            task.total_attempts = '-';
-            task.tests = '-';
+          } else {
+            task.penalty_micros = timeToString(task.penalty_micros);
           }
-          size[at] = Math.max(size[at], task.penalty_micros.length);
-          at++;
-          size[at] = Math.max(size[at], task.total_attempts.length);
-          at++;
-          size[at] = Math.max(size[at], task.tests.length);
-          at++;
+          task.total_attempts += '/' + task.penalty_attempts;
+          task.tests = '';
+          for (let k = 0; k < task.tests_definitely_solved; k++) {
+            task.tests += 'A';
+          }
+          for (let k = 0; k < task.tests_possibly_solved; k++) {
+            task.tests += '?';
+          }
+          while (task.tests.length != testCnt[j]) {
+            task.tests += '_';
+          }
+        } else {
+          task.penalty_micros = '-';
+          task.total_attempts = '-';
+          task.tests = '-';
+        }
+        size[at] = Math.max(size[at], task.penalty_micros.length);
+        at++;
+        size[at] = Math.max(size[at], task.total_attempts.length);
+        at++;
+        size[at] = Math.max(size[at], task.tests.length);
+        at++;
       }
     }
     for (let i = 0; i < data.length; i++) {
